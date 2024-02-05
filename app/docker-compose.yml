@@ -1,0 +1,21 @@
+version: '3'
+services:
+  my-back-service:
+    image: limintian/my_python_flask:latest
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - CURRENT_ENVIRONMENT=production
+
+  my-front-service:
+    image: limintian/my_frontend_app:latest
+    ports:
+      - "8080:80"
+    environment:
+      - WS_BACK_URL=http://backend:5000
+    depends_on:
+      - my-back-service
+    volumes:
+      - ./front-data:/usr/share/nginx/html
