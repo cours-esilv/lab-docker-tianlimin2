@@ -1,0 +1,2 @@
+docker run -d -p 5000:5000 --name my_back_container limintian/my_python_flask:latest
+docker run -d -p 8080:80 --name my_front_container --env WS_BACK_URL=http://backend:5000 limintian/my_frontend_app:latest

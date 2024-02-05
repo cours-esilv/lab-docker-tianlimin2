@@ -1,0 +1,1 @@
+gitpod /workspace/lab-docker-tianlimin2 (main) $ docker exec -it my_newflask_app bash
